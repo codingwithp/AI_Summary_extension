@@ -1,0 +1,32 @@
+{
+  "manifest_version": 3,
+  "name": "AI Page & YouTube Summarizer",
+  "version": "1.0",
+  "description": "Summarizes the current webpage or YouTube video using AI.",
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage"
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.jpeg"
+    
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "options_page":"options.html",
+
+  "host_permissions":["<all_urls>"]
+
+  
+}
